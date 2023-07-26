@@ -1,0 +1,37 @@
+
+# Temporary files
+resultsPMMHTemp.jl
+tempResultsPMMH_normal001.jl
+tempResultsPMMH_normal002.jl
+tempResultsPMMH_normal004.jl
+tempResultsPMMH_normal006.jl
+tempResultsPMMH_uniform.jl
+/tempResultsBackupFiles/
+/outputs/fullposterior/testing*
+
+# MMH outputs (can be very big)
+outputs/older stored results/
+outputs/pmmh.nosync/*
+/outputs/finalmarginals/**/*
+/outputs/curvewiseests/*
+
+# But we want to allow *some* of the MMH files through
+!/outputs/finalmarginals/*.txt
+!outputs/curvewiseests/*.txt
+!/outputs/pmmh.nosync/final/
+
+# Any samples files
+*_samples.csv
+
+# Scripting files
+*.sh
+
+# R files
+.RData
+.Renviron
+.Ruserdata
+.Rhistory
+.Rapp.history
+
+# macOS specific
+*.DS_Store

@@ -1,0 +1,10 @@
+Posterior estimates:
+Max R = 2.76 (2.2, 3.83) on 2022-02-18 (2022-02-09, 2022-02-23)
+Min R = 0.69 (0.54, 0.82) on 2022-03-09 (2022-02-28, 2022-03-18)
+Max CAR = 0.63 (0.48, 0.81) on 2022-03-12 (2022-02-15, 2022-03-18)
+Min CAR = 0.32 (0.15, 0.49) on 2022-02-14 (2022-02-06, 2022-03-07)
+Max It = 53654.76 (36530.0, 78923.0) on 2022-02-27 (2022-02-22, 2022-03-06)
+Min It = 1571.38 (932.0, 2626.0) on 2022-02-06 (2022-02-06, 2022-02-07)
+R first sub 1 on 2022-02-28 (2022-02-25, 2022-03-05). With 0 NaN occurences.
+
+Note these estimates are constrained between 2022-02-06 and 2022-03-18. Ensure the full confidence intervals of the relevant metric are easily contained in this range.

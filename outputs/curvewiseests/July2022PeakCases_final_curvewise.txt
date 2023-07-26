@@ -1,0 +1,10 @@
+Posterior estimates:
+Max R = 1.35 (1.23, 1.54) on 2022-06-24 (2022-06-19, 2022-07-02)
+Min R = 0.84 (0.77, 0.89) on 2022-07-24 (2022-07-13, 2022-07-28)
+Max CAR = 0.31 (0.27, 0.36) on 2022-06-22 (2022-06-18, 2022-07-23)
+Min CAR = 0.24 (0.2, 0.27) on 2022-07-13 (2022-06-24, 2022-07-28)
+Max It = 42792.76 (36441.0, 50458.0) on 2022-07-07 (2022-07-03, 2022-07-12)
+Min It = 17436.58 (14375.0, 20938.0) on 2022-06-19 (2022-06-18, 2022-06-20)
+R first sub 1 on 2022-07-06 (2022-06-18, 2022-07-12). With 0 NaN occurences.
+
+Note these estimates are constrained between 2022-06-18 and 2022-07-28. Ensure the full confidence intervals of the relevant metric are easily contained in this range.
