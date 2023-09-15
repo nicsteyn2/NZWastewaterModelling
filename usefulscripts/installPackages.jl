@@ -3,7 +3,7 @@ using Pkg
 
 # Statistics and plotting
 Pkg.add("Plots")
-Plg.add("Gadfly")
+Pkg.add("Gadfly")
 Pkg.add("GLM")
 Pkg.add("StatsModels")
 Pkg.add("KernelDensity")
