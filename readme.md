@@ -1,6 +1,6 @@
 # NZ Wastewater Modelling
 
-*Improving estimates of epidemiological quantities by combining reported cases with wastewater data: a statistical framework with applications to COVID-19 in Aotearoa New Zealand*
+*[Improving estimates of epidemiological quantities by combining reported cases with wastewater data: a statistical framework with applications to COVID-19 in Aotearoa New Zealand](https://www.medrxiv.org/content/10.1101/2023.08.14.23294060v1)*
 
 Scripts and functions required to reproduce the NZ wastewater modelling project and/or apply the methods to another jurisdiction. The majority of the computation is performed in Julia, although we use R to perform some pre-processing and for generating figures in the corresponding paper.
 
