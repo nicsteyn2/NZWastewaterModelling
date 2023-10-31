@@ -39,11 +39,10 @@ end
 
 
 # Specify parameter vector, start date, and end date and let the function do the rest!
-θ = [0.0063, 0.037, 330, 4.8e-6] # [σ_CAR, σ_R, k_c, k_w]
-ST_DATE = Date("2022-07-01")
-EN_DATE = Date("2022-09-30")
-(results, Y, opts) = runFilter(θ, ST_DATE, EN_DATE, "example")
-
+θ = [0.01, 0.038, 150, 6.8e-6] # [σ_CAR, σ_R, k_c, k_w]
+ST_DATE = Date("2023-01-01")
+EN_DATE = Date("2023-10-01")
+(results, Y, opts) = runFilter(θ, ST_DATE, EN_DATE, "testnewdata", Nx=1e6)
 
 
 # We recommend plotting the results using R/makeFigure3_results.R.

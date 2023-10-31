@@ -60,8 +60,8 @@ end
 function separateAndDetrendCaseData(Y)
     
     # We separate the NZ data into these dates
-    st_dates = [Date("2000-01-01"), Date("2022-01-01"), Date("2022-03-01"), Date("2022-07-01"), Date("2022-10-01"), Date("2023-01-01"), Date("2023-04-01")]
-    en_dates = [Date("2021-12-31"), Date("2022-02-28"), Date("2022-06-30"), Date("2022-09-30"), Date("2022-12-31"), Date("2023-03-31"), Date("2100-01-01")]
+    st_dates = [Date("2000-01-01"), Date("2022-01-01"), Date("2022-03-01"), Date("2022-07-01"), Date("2022-10-01"), Date("2023-01-01"), Date("2023-04-01"), Date("2023-07-01"), Date("2023-10-01")]
+    en_dates = [Date("2021-12-31"), Date("2022-02-28"), Date("2022-06-30"), Date("2022-09-30"), Date("2022-12-31"), Date("2023-03-31"), Date("2023-06-30"), Date("2023-09-30"), Date("2100-01-01")]
     
     # We break the input data into sections and then stack it into a big Yall for returning
     Yall = DataFrame()

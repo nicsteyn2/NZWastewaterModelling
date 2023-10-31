@@ -102,6 +102,34 @@ function runPMMHNZ(period, nChains, model_name)
 
         sigRho_prior = Truncated(Normal(0.006, 0.0020401247804969313), 0, Inf)
 
+    elseif period == 6
+
+        ST_DATE=Date("2023-04-01")-Day(normal_windin)-Day(extra_windin)
+        EN_DATE=Date("2023-07-01")
+
+        σrho_init = (6.6e-3, 9.2e-3)
+        σR_init = (1.5e-2, 3.0e-2)
+        kc_init = (1.0e2, 1.3e2)
+        kw_init = (4.1e-6, 5.2e-6)
+
+        propVars = [0.0011, 0.0078, 14, 5.1e-7]
+
+        sigRho_prior = Truncated(Normal(0.006, 0.0020401247804969313), 0, Inf)
+
+    elseif period == 7
+
+        ST_DATE=Date("2023-07-01")-Day(normal_windin)-Day(extra_windin)
+        EN_DATE=Date("2023-10-01")
+
+        σrho_init = (8.5e-3, 1.0e-2)
+        σR_init = (4.3e-2, 6.8e-2)
+        kc_init = (1.7e2, 2.6e2)
+        kw_init = (6.5e-6, 8.8e-6)
+
+        propVars = [0.001, 0.01, 38, 1.0e-6]
+
+        sigRho_prior = Truncated(Normal(0.006, 0.0020401247804969313), 0, Inf)
+
     end
     
     # Load data
@@ -152,6 +180,6 @@ end
 # When running on the cluster
 period = parse(Int, ARGS[1])
 nThreads = 8
-modelname = "final"
+modelname = "updates"
 
 runPMMHNZ(period, nThreads, modelname)

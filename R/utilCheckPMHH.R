@@ -9,8 +9,8 @@ library(jsonlite)
 source("R/supportLoadOutputs.R")
 
 # Specify inputs
-PERIOD = 1
-MODEL_NAME = "final"
+PERIOD = 7
+MODEL_NAME = "updates"
 N_CHAINS = 8
 MIN_ITER = 0
 THIN = 1
