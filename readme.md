@@ -4,7 +4,7 @@
 
 Scripts and functions required to reproduce the NZ wastewater modelling project and/or apply the methods to another jurisdiction. The majority of the computation is performed in Julia, although we use R to perform some pre-processing and for generating figures in the corresponding paper.
 
-![Model outputs](/outputs/results/figure3_results.png "Model outputs")
+![Model outputs](/outputs/updates/fullseries.png "Model outputs")
 
 We provide some example scripts with minimal working examples to help you get started:
  - *runFilterExample.jl*: Runs the core particle filter at single parameter vector theta. This is a good place to start.
