@@ -39,22 +39,22 @@ function processAllResults(ρ, R, I, C_expected::Matrix, C_predictive::Matrix, W
     Tw = outerjoin(Tw_expected, Tw_predictive, on=:date)
     
     # Append variable names
-    Tρ.variable .= "CARt"
-    TR.variable .= "Rt"
-    TI.variable .= "It"
-    Tc.variable .= "Cases"
-    Tw.variable .= "Wastewater"
-    TpRLessThanOne.variable .= "pRLessThanOne"
+    Tρ.variable = "CARt"
+    TR.variable = "Rt"
+    TI.variable = "It"
+    Tc.variable = "Cases"
+    Tw.variable = "Wastewater"
+    TpRLessThanOne.variable = "pRLessThanOne"
     
     # Append missing columns
-    Tρ.predictive_lower .= NaN
-    Tρ.predictive_upper .= NaN
-    TR.predictive_lower .= NaN
-    TR.predictive_upper .= NaN
-    TI.predictive_lower .= NaN
-    TI.predictive_upper .= NaN
-    TpRLessThanOne.predictive_lower .= NaN
-    TpRLessThanOne.predictive_upper .= NaN
+    Tρ.predictive_lower = NaN
+    Tρ.predictive_upper = NaN
+    TR.predictive_lower = NaN
+    TR.predictive_upper = NaN
+    TI.predictive_lower = NaN
+    TI.predictive_upper = NaN
+    TpRLessThanOne.predictive_lower = NaN
+    TpRLessThanOne.predictive_upper = NaN
     
     # Stack everything together
     Tout = [Tρ; TR; TI; Tc; Tw; TpRLessThanOne]
@@ -105,9 +105,9 @@ function calculateProbRLessThanOne(X, opts)
     Tout.mean = vec(mean(X.<=1, dims=1))
     Tout.t = 1:opts["tMax"]
     Tout.date = opts["dates"]
-    Tout.median .= NaN
-    Tout.lower .= NaN
-    Tout.upper .= NaN
+    Tout.median = NaN
+    Tout.lower = NaN
+    Tout.upper = NaN
 
     return(Tout)
     
@@ -152,25 +152,25 @@ function processAllResults(ρ, R, I, CI, C_expected::Matrix, C_predictive::Matri
     Tw = outerjoin(Tw_expected, Tw_predictive, on=:date)
     
     # Append variable names
-    Tρ.variable .= "CARt"
-    TR.variable .= "Rt"
-    TI.variable .= "It"
-    TCI.variable .= "CI"
-    Tc.variable .= "Cases"
-    Tw.variable .= "Wastewater"
-    TpRLessThanOne.variable .= "pRLessThanOne"
+    Tρ.variable = "CARt"
+    TR.variable = "Rt"
+    TI.variable = "It"
+    TCI.variable = "CI"
+    Tc.variable = "Cases"
+    Tw.variable = "Wastewater"
+    TpRLessThanOne.variable = "pRLessThanOne"
     
     # Append missing columns
-    Tρ.predictive_lower .= NaN
-    Tρ.predictive_upper .= NaN
-    TR.predictive_lower .= NaN
-    TR.predictive_upper .= NaN
-    TI.predictive_lower .= NaN
-    TI.predictive_upper .= NaN
-    TCI.predictive_lower .= NaN
-    TCI.predictive_upper .= NaN
-    TpRLessThanOne.predictive_lower .= NaN
-    TpRLessThanOne.predictive_upper .= NaN
+    Tρ.predictive_lower = NaN
+    Tρ.predictive_upper = NaN
+    TR.predictive_lower = NaN
+    TR.predictive_upper = NaN
+    TI.predictive_lower = NaN
+    TI.predictive_upper = NaN
+    TCI.predictive_lower = NaN
+    TCI.predictive_upper = NaN
+    TpRLessThanOne.predictive_lower = NaN
+    TpRLessThanOne.predictive_upper = NaN
     
     # Stack everything together
     Tout = [Tρ; TR; TI; TCI; Tc; Tw; TpRLessThanOne]
