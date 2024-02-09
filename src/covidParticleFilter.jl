@@ -43,7 +43,7 @@ function covidParticleFilter(ρ, R, I, Y, θ::Matrix, opts)
         end
         
         # Calculate case weights
-        if Y.casesDataIsValid[tt]
+        if Y.casesDataIsValid[tt] && opts["datasource"] != "W"
             μc = (ρ[:,tt] .* reportingPressure) # This is the expected value of cases
             r = θ[tt,3]
             p = r./(r .+ μc)
@@ -53,7 +53,7 @@ function covidParticleFilter(ρ, R, I, Y, θ::Matrix, opts)
         end
         
         # Calculate wastewater weights
-        if Y.wwDataIsValid[tt]
+        if Y.wwDataIsValid[tt] && opts["datasource"] != "C"
             shape = θ[tt,4] * Y.nPopInCatchment[tt]
             scale = genomePressurePerCapita./shape
             W_ww = pdf.(Gamma.(shape, scale), Y.nGenomeCopies[tt])
@@ -72,7 +72,7 @@ function covidParticleFilter(ρ, R, I, Y, θ::Matrix, opts)
             error("Invalid choice of method. Options are: cases only (C), wastewater only (W), or both (CW).")
         end
         
-        # Calcualte the stepwise eveidnce
+        # Calculate the stepwise eveidnce
         STEPWISEEV[tt] = mean(W)
 
         # And attempt to resample particles. If this fails then either θ is a very poor choice or Nx is too small.
@@ -112,6 +112,11 @@ function initialiseHiddenStates(Y, opts)
         ρ[:,tt] = rand(Uniform(0.05, 0.95), opts["Nx"])
         R[:,tt] = 3*rand(opts["Nx"])
         I[:,tt] = round.(rand(Uniform(Y.nCases[tt]/0.95, Y.nCases[tt]/0.05), opts["Nx"]))
+    end
+
+    # If we aren't using both datasources, then set ρ = 0.5
+    if opts["datasource"] != "CW"
+        ρ[:,1:opts["windinPeriod"]] .= 0.5
     end
     
     return(ρ, R, I)

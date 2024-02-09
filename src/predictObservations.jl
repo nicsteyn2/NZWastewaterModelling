@@ -26,9 +26,13 @@ function sampleExpectedAndPredictiveCases(ρ, I, θ::Matrix, opts)
     expectedCasesParticles[:,(1:opts["windinPeriod"])] .= 1 # Just store some blank value prior to the wind-in
     
     # and then we use expectedCasesParticles as the mean of the observation distribution and sample from this
-    r = repeat(θ[:,3]', size(expectedCasesParticles)[1], 1)
-    p = r ./(r .+ expectedCasesParticles)
-    predictiveCasesParticles = rand.(NegativeBinomial.(r, p))
+    if minimum(θ[:,3]) > 0
+        r = repeat(θ[:,3]', size(expectedCasesParticles)[1], 1)
+        p = r ./(r .+ expectedCasesParticles)
+        predictiveCasesParticles = rand.(NegativeBinomial.(r, p))
+    else
+        predictiveCasesParticles = zeros(size(expectedCasesParticles))
+    end
     
     # and return our samples
     return(expectedCasesParticles, predictiveCasesParticles)
@@ -61,7 +65,7 @@ function sampleExpectedAndPredictiveWastewater(I, θ::Matrix, opts)
     
     # This comes in handy if we replace "popnSizeForPredictiveWastewater" with the actual population size sampled, which can sometimes be zero.
     function safe_gamma_rand(shape, scale)
-        if ismissing(shape) || ismissing(scale)
+        if ismissing(shape) || ismissing(scale) || scale == 0 || shape == 0
             return(NaN)
         else
             return(rand.(Gamma(shape, scale)))

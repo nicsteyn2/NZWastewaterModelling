@@ -57,14 +57,28 @@ miniter = 100
 # Run the full posterior at our standard vaulue of α = 3e9...
 runFullPosteriorNZ(nParamSamples, in_labels, outlabel; alpha=3e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
 
-# ... and now at α = 2e9
-runFullPosteriorNZ(nParamSamples, in_labels, outlabel * string("_alpha2e9"); alpha=2e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
+# # ... and now at α = 2e9
+# runFullPosteriorNZ(nParamSamples, in_labels, outlabel * string("_alpha2e9"); alpha=2e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
 
-# ... and now at α = 4e9
-runFullPosteriorNZ(nParamSamples, in_labels, outlabel * string("_alpha4e9"); alpha=4e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
+# # ... and now at α = 4e9
+# runFullPosteriorNZ(nParamSamples, in_labels, outlabel * string("_alpha4e9"); alpha=4e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
 
 # # ... and now at α = 3e9 but on cases only
 # runFullPosteriorNZ(nParamSamples, in_labels, outlabel * "_casesonly"; datasource="C", alpha=3e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
 
 # # ... and now at α = 3e9 but on wastewater only
 # runFullPosteriorNZ(nParamSamples, in_labels, outlabel * "_wastewateronly"; datasource="C", alpha=3e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter)
+
+# # and now only on reported cases
+# in_labels = "casesonly"
+# outlabel = "casesonly"
+# nParamSamples = 100
+# nTargetSamples = 1e6
+# Nx = 2e4
+# miniter = 100
+# runFullPosteriorNZ(nParamSamples, in_labels, outlabel; alpha=3e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter, datasource="C")
+
+# # # and now only on wastewater
+# in_labels = "wastewateronly"
+# outlabel = "wastewateronly"
+# runFullPosteriorNZ(nParamSamples, in_labels, outlabel; alpha=3e9, Nx=Nx, nTargetSamples=nTargetSamples, miniter=miniter, datasource="W")

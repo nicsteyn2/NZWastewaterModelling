@@ -24,8 +24,8 @@ loadMCMCOutputs = function(nChains, fname) {
     df_accprob_in = read.csv(fname_accprobs, col.names =c("accprob"))
     
     # Append info
-    df_samples_in = df_samples_in %>% mutate(iter=seq(1,nrow(df_samples_in)), chain=ii) %>% filter(kw!=0)
-    df_allests_in = df_allests_in %>% mutate(iter=seq(1,nrow(df_allests_in)), chain=ii) %>% filter(kw!=0)
+    df_samples_in = df_samples_in %>% mutate(iter=seq(1,nrow(df_samples_in)), chain=ii) %>% filter(sigR!=0)
+    df_allests_in = df_allests_in %>% mutate(iter=seq(1,nrow(df_allests_in)), chain=ii) %>% filter(sigR!=0)
     df_loglik_in = df_loglik_in %>% mutate(iter=seq(2,nrow(df_loglik_in)+1), chain=ii)
     df_accprob_in = df_accprob_in %>% mutate(iter=seq(2,nrow(df_accprob_in)+1), chain=ii) %>% filter(!is.na(accprob))
     

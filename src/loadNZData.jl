@@ -14,7 +14,7 @@ function loadNZData(;ST_DATE=-Inf, EN_DATE=Inf)
     cases = separateAndDetrendCaseData(cases)
     cases.nCases = cases.nCasesDetrended # We want to just use our detrended cases as our cases
     cases.nCases = Int.(round.(cases.nCases)) # and cases need to be rounded as we use a discrete observation distribution
-    cases.casesDataIsValid .= true
+    cases[:,:casesDataIsValid] .= true
     select!(cases, :date, :nCases, :casesDataIsValid)
 
     # Start big table

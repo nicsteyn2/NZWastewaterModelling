@@ -13,12 +13,12 @@ function fetchPMMHOutputsForNZ(mmhLabel::String, nChains, miniter)
     for period = 1:5
         current_label = mmhLabel * "_period" * string(period)
         current_samples = loadPMMHOutputs(current_label, nChains; indir=indir)
-        current_samples.period .= period
+        current_samples.period = period
         all_samples = [all_samples; current_samples]
     end
     
     # Remove missing data and cut-off the wind-in period
-    all_samples = all_samples[all_samples[:,1] .!= 0, :]
+    all_samples = all_samples[all_samples[:,2] .!= 0, :]
     all_samples = all_samples[all_samples.iter .>= miniter, :]
     
     return(all_samples)
@@ -45,7 +45,7 @@ function fetchPMMHOutputsForNZ(mmhLabel::Vector{String}, nChains, miniter)
     end
     
     # Remove missing data and cut-off the wind-in period
-    all_samples = all_samples[all_samples[:,1] .!= 0, :]
+    all_samples = all_samples[all_samples[:,2] .!= 0, :]
     all_samples = all_samples[all_samples.iter .>= miniter, :]
     
     return(all_samples)
@@ -63,7 +63,7 @@ function loadPMMHOutputs(label::String, nChains::Int; indir="outputs/pmmh.nosync
         fname = indir * label * "_chainno" * string(chain_no) * "_retainedparams.csv"
         df_in = DataFrame(CSV.File(fname))
         df_in.iter = collect(1:nrow(df_in))
-        df_in.chain_no .= chain_no
+        df_in.chain_no = chain_no
         mcmc_samples = [mcmc_samples; df_in]
     end
     return(mcmc_samples)
