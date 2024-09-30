@@ -1,8 +1,8 @@
 # NZ Wastewater Modelling
 
-*[Improving estimates of epidemiological quantities by combining reported cases with wastewater data: a statistical framework with applications to COVID-19 in Aotearoa New Zealand](https://www.medrxiv.org/content/10.1101/2023.08.14.23294060v1)*
+*[Jointly estimating epidemiological dynamics of Covid-19 from case and wastewater data in Aotearoa New Zealand](https://www.nature.com/articles/s43856-024-00570-3)*
 
-Scripts and functions required to reproduce the NZ wastewater modelling project and/or apply the methods to another jurisdiction. The majority of the computation is performed in Julia, although we use R to perform some pre-processing and for generating figures in the corresponding paper.
+Scripts and functions required to reproduce the results in the paper and/or apply the methods to new datasets. The majority of the computation is performed in Julia, although we use R to perform some pre-processing and for generating figures in the corresponding paper.
 
 ![Model outputs](/outputs/updates/fullseries.png "Model outputs")
 
