@@ -24,6 +24,14 @@ Sub-folders are organised as follows:
  - */outputs/*: Model outputs and results. See the readme in the folder for organisation.
  - */data/*: Self-explanatory. The only script that writes to this folder is */R/processNZData.R*.
 
+The wastewater sampling data were collected and provided by the New Zealand Institute for Public Health and Forensic Science (formerly the Institute of Environmental Science and Research):
+
+> New Zealand Institute for Public Health and Forensic Science Ltd (PHF Science). **Wastewater COVID-19 surveillance programme.** [https://github.com/ESR-NZ/covid_in_wastewater](https://github.com/ESR-NZ/covid_in_wastewater).
+
+Reported cases of COVID-19 were collected and reported by the Ministry of Health:
+
+> New Zealand Ministry of Health. **New Zealand COVID-19 data**. [https://github.com/minhealthnz/nz-covid-data](https://github.com/minhealthnz/nz-covid-data).
+
 
 ## Quick start guide
 
